@@ -17,19 +17,14 @@ ctx.strokeStyle = "#000"; // Initial stroke color
 
 function startDrawing(e) {
   isDrawing = true;
-  curve = [
-    {
-      x: e.offsetX || e.touches[0].clientX,
-      y: e.offsetY || e.touches[0].clientY,
-    },
-  ];
+  curve = [{ x: e.offsetX, y: e.offsetY }];
   e.preventDefault(); // Prevent default behavior like text selection
 }
 
 function draw(e) {
   if (!isDrawing) return;
-  const x = e.offsetX || e.touches[0].clientX;
-  const y = e.offsetY || e.touches[0].clientY;
+  const x = e.offsetX;
+  const y = e.offsetY;
 
   curve.push({ x, y });
   redraw();
@@ -88,18 +83,17 @@ canvas.addEventListener("mousemove", draw);
 canvas.addEventListener("mouseup", stopDrawing);
 canvas.addEventListener("mouseout", stopDrawing);
 
-// Touch events
-canvas.addEventListener("touchstart", startDrawing);
-canvas.addEventListener("touchmove", draw);
-canvas.addEventListener("touchend", stopDrawing);
-canvas.addEventListener("touchcancel", stopDrawing);
+// Function to save canvas as image
+function saveAsImage() {
+  const dataURL = canvas.toDataURL("image/png"); // Change "image/png" to "image/jpeg" for JPG format
+  const link = document.createElement("a");
+  link.href = dataURL;
+  link.download = "drawing.png"; // Change "drawing.png" to "drawing.jpg" for JPG format
+  link.click();
+}
 
-// Prevent right-click context menu inside the canvas
-canvas.addEventListener("contextmenu", function (e) {
-  e.preventDefault();
-});
-
-// Focus on canvas when hovered over
-canvas.addEventListener("mouseenter", function () {
-  canvas.focus();
-});
+// Example usage: Add a button to trigger the saveAsImage function
+const saveButton = document.createElement("button");
+saveButton.textContent = "Save as Image";
+saveButton.addEventListener("click", saveAsImage);
+document.body.appendChild(saveButton);
