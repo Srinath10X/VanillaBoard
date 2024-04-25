@@ -6,8 +6,19 @@
     <title>Simple Drawing App</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
+
   <body>
     <canvas id="canvas" height="600" width="800"></canvas>
     <script src="script.js"></script>
+    <div class="buttons">
+      <button class="saveAsImage" onclick="saveAsImage()">Save</button>
+      <button class="undo" onclick="undo()">
+        <i class="nf nf-md-undo"></i>
+      </button>
+      <button class="redo" onclick="redo()">
+        <i class="nf nf-md-redo"></i>
+      </button>
+      <button class="clearCanvas" onclick="clearCanvas()">clear</button>
+    </div>
   </body>
 </html>

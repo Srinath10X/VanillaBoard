@@ -14,7 +14,7 @@ let undoActions = []; // Array to store actions for undo
 ctx.lineWidth = strokeSize;
 ctx.lineJoin = "round";
 ctx.lineCap = "round";
-ctx.strokeStyle = "#000"; // Initial stroke color
+ctx.strokeStyle = "#cdd6f4"; // Initial stroke color
 
 function startDrawing(e) {
   isDrawing = true;
@@ -93,12 +93,6 @@ function saveAsImage() {
   link.click();
 }
 
-// Example usage: Add a button to trigger the saveAsImage function
-const saveButton = document.createElement("button");
-saveButton.textContent = "Save as Image";
-saveButton.addEventListener("click", saveAsImage);
-document.body.appendChild(saveButton);
-
 // Function to undo the last drawing action
 function undo() {
   if (drawings.length > 0) {
@@ -119,14 +113,29 @@ function redo() {
   }
 }
 
-// Example usage: Create Undo button
-const undoButton = document.createElement("button");
-undoButton.textContent = "Undo";
-undoButton.addEventListener("click", undo);
-document.body.appendChild(undoButton);
+function clearCanvas() {
+  // clear the canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawings = []; // clearing the drawings array
+  undoActions = []; // clearing the undoActions array
+}
 
-// Example usage: Create Redo button
-const redoButton = document.createElement("button");
-redoButton.textContent = "Redo";
-redoButton.addEventListener("click", redo);
-document.body.appendChild(redoButton);
+// Function to update canvas dimensions
+function updateCanvasSize() {
+  // Preserve current stroke color and width
+  const currentStrokeColor = ctx.strokeStyle;
+  const currentStrokeWidth = ctx.lineWidth;
+
+  // Resize canvas
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+
+  // Restore preserved stroke color and width
+  ctx.strokeStyle = currentStrokeColor;
+  ctx.lineWidth = currentStrokeWidth;
+
+  redraw(); // Redraw after resizing
+}
+
+// Add event listener for window resize
+window.addEventListener("resize", updateCanvasSize);

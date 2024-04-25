@@ -1,3 +1,5 @@
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +11,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  background: #11111b;
 }
 
 body {
@@ -20,9 +23,33 @@ body {
   height: 100vh;
 }
 
-canvas {
+#canvas {
   border: 2px solid black;
   border-radius: 0.5rem;
-  height: 90vh;
-  width: 90%;
+  height: 97vh;
+  width: 98.7%;
+  background: #181825;
+  border: 1px solid #45475a;
+}
+
+.buttons {
+  display: flex;
+  position: absolute;
+  height: 80px;
+  width: 250px;
+  top: 0.2rem;
+  left: 1rem;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.buttons button {
+  height: 2rem;
+  width: 3rem;
+  border-radius: 0.35rem;
+  outline: none;
+  border: none;
+  color: #1e1e1e;
+  background: #b4befe;
+  border: 1px solid #45475a;
 }
