@@ -16,8 +16,8 @@ previous actions.
 
 Clone the repository:
 
-```
-git clone https://github.com/your-username/vanilla-board.git
+```bash
+git clone https://github.com/Srinath10X/VanillaBoard.git
 ```
 
 Open the index.html file in your web browser.
