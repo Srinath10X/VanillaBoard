@@ -14,7 +14,7 @@ let undoActions = []; // Array to store actions for undo
 ctx.lineWidth = strokeSize;
 ctx.lineJoin = "round";
 ctx.lineCap = "round";
-ctx.strokeStyle = "#0000ff"; // default color {#cdd6f4} // Initial stroke color
+ctx.strokeStyle = "#cdd6f4"; // default color {#cdd6f4} // Initial stroke color
 
 const startDrawing = (e) => {
   isDrawing = true;
