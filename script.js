@@ -173,6 +173,13 @@ const stopDrawingTouch = (e) => {
   stopDrawing();
 };
 
+// Add event listeners for keyboard shortcuts
+document.addEventListener("keydown", (e) => {
+  if (e.ctrlKey && e.key === "z") {
+    undo();
+  }
+});
+
 // Add event listeners for touch events
 canvas.addEventListener("touchstart", startDrawingTouch);
 canvas.addEventListener("touchmove", drawTouch);
