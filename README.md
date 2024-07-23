@@ -39,4 +39,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## 📬 Contact
 
-For any inquiries or feedback, please contact [your-email-address].
+For any inquiries or feedback, please contact srinathspeaks@gmail.com.
